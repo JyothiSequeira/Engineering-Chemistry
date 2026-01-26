@@ -1,0 +1,4117 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Introduction</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+
+
+  <style>
+
+    /* body {
+
+        margin: 0;
+
+        overflow: hidden;
+
+      } */
+
+
+
+    /* Black screen initially */
+
+    #blackScreen {
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      width: 100vw;
+
+      height: 100vh;
+
+      background-color: black;
+
+      color: white;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      align-items: center;
+
+      font-size: 24px;
+
+      transition: opacity 1.5s ease-in-out;
+
+      z-index: 2;
+
+    }
+
+
+
+    #startButton {
+
+      margin-top: 20px;
+
+      padding: 10px 20px;
+
+      font-size: 18px;
+
+      border: none;
+
+      border-radius: 5px;
+
+      background-color: rgb(11, 154, 154);
+
+      color: white;
+
+      cursor: pointer;
+
+    }
+
+
+
+    #startButton:hover {
+
+      background-color: rgb(2, 62, 62);
+
+    }
+
+
+
+    /* Main content */
+
+    #content {
+
+      opacity: 0;
+
+      /* Initially hidden */
+
+      transition: opacity 1.5s ease-in-out;
+
+      background-image: url("");
+
+      background-attachment: fixed;
+
+      background-size: cover;
+
+      background-repeat: no-repeat;
+
+      background-position: center;
+
+      width: 100vw;
+
+      height: 100vh;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      flex-direction: column;
+
+      z-index: 1;
+
+    }
+
+
+
+    /* #teachers_position {
+
+        margin-top: 300px;
+
+      } */
+
+
+
+    #message {
+
+      background-color: rgb(68, 34, 141);
+
+      color: white;
+
+      width: 350px;
+
+      height: 100px;
+
+      text-align: center;
+
+      padding: 15px;
+
+      border-radius: 10px;
+
+      font-size: 18px;
+
+      border: 2px solid #ccc;
+
+      margin-top: 20px;
+
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    }
+
+
+
+    .container {
+
+      /* display: flex; */
+
+      align-items: center;
+
+      gap: 20px;
+
+    }
+
+
+
+    #btn1 {
+
+      text-align: center;
+
+      padding: 3px;
+
+      width: 80px;
+
+      height: 40px;
+
+      margin-top: 20px;
+
+      border: none;
+
+      border-radius: 8px;
+
+      border: 2px solid black;
+
+      background-color: #24f37a;
+
+      /* background-color: rgb(249, 165, 10); */
+
+      color: black;
+
+      cursor: pointer;
+
+      font-size: 16px;
+
+    }
+
+
+
+    #btn1:hover {
+
+      background-color: rgb(244, 60, 60);
+
+      color: black;
+
+    }
+
+
+
+    #heading1 {
+
+      width: 600px;
+
+      height: auto;
+
+      background-color: white;
+
+      color: black;
+
+      border-radius: 10px;
+
+      text-align: center;
+
+      margin-top: 0;
+
+    }
+
+
+
+    .box {
+
+      padding: 20px;
+
+      font-size: 20px;
+
+      color: white;
+
+      text-align: center;
+
+      background-color: black;
+
+      border-radius: 10px;
+
+      border: 2px solid #0ff;
+
+      box-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+
+      animation: neonGlow 1s infinite alternate;
+
+    }
+
+
+
+    body {
+
+      margin: 0;
+
+      padding: 0;
+
+      font-family: 'Segoe UI', sans-serif;
+
+      background: linear-gradient(to right, #2c3e50, #4ca1af);
+
+      color: white;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      height: 100vh;
+
+      text-align: center;
+
+    }
+
+
+
+    .closing-container {
+
+      max-width: 600px;
+
+      padding: 40px;
+
+      background-color: rgba(0, 0, 0, 0.6);
+
+      border-radius: 20px;
+
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+
+    }
+
+
+
+
+
+    button {
+
+      margin-top: 30px;
+
+      padding: 10px 25px;
+
+      font-size: 1rem;
+
+      background-color: #27ae60;
+
+      color: white;
+
+      border: none;
+
+      border-radius: 10px;
+
+      cursor: pointer;
+
+      transition: background-color 0.3s ease;
+
+    }
+
+
+
+    button:hover {
+
+      background-color: #219150;
+
+    }
+
+  </style>
+
+</head>
+
+
+
+<body>
+
+  <!-- Black screen intro -->
+
+  <div id="blackScreen">
+
+    <div class="closing-container box">
+
+      <h4>Hey, Explorers of Science!<br>Welcome to the Chemistry Virtual Lab!</h4>
+
+      <br />
+
+      <p>Science waits in the shadows. Illuminate the lab to explore..!!</p>
+
+      <br>
+
+      <i class="fa-solid fa-lightbulb" style="color: yellow"></i>
+
+      <br>
+
+      <button id="startButton" onclick="turnOnLights()">
+
+        Turn On the Lights
+
+      </button>
+
+      <p style="font-size: 12px; font-family: monospace">(Click the above button to turn on the light)</p>
+
+    </div>
+
+
+
+  </div>
+
+
+
+  <!-- Main content -->
+
+  <div id="content">
+
+    <div class="container">
+
+
+
+      <div id="message">Welcome to the Virtual Chemistry Lab,<br>Now that we can see… it’s time to mix, measure, and
+
+        marvel!</div>
+
+    </div>
+
+
+
+    <div class="container">
+
+      <button id="btn1" onclick="nextMessage()">
+
+        <center>NEXT</center>
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+
+  <script>
+
+    function turnOnLights() {
+
+      document.getElementById("blackScreen").style.opacity = "0";
+
+      setTimeout(() => {
+
+        document.getElementById("blackScreen").style.display = "none";
+
+        document.getElementById("content").style.opacity = "1";
+
+      }, 1500);
+
+    }
+
+
+
+    const messages = [
+
+      "From beakers to burners, every apparatus has a role—let’s explore their magic!",
+
+      "Get ready to conduct exciting experiments and witness chemistry in action!",
+
+      "Test your knowledge with interactive quizzes and challenge your inner scientist!",
+
+      "Let’s begin this electrifying journey into the world of chemistry!",
+
+    ];
+
+
+
+    let index = 0;
+
+    let typingSpeed = 50;
+
+
+
+    function typeMessage(text, i = 0) {
+
+      if (i < text.length) {
+
+        document.getElementById("message").innerText = text.substring(
+
+          0,
+
+          i + 1
+
+        );
+
+        setTimeout(() => typeMessage(text, i + 1), typingSpeed);
+
+      } else {
+
+        speakMessage(text);
+
+      }
+
+    }
+
+
+
+    function nextMessage() {
+
+      if (index < messages.length) {
+
+        typeMessage(messages[index]);
+
+        index++;
+
+      } else {
+
+       
+
+        document.getElementById(
+
+          "message"
+
+        ).innerHTML = `Put on your lab coat — it's time to begin..!! <br><br>
+
+            <a href="Apparatus.html"
+
+               style="color: white; text-decoration: underline; font-weight: bold;">
+
+               Let the learning begin!
+
+            </a>`;
+
+      }
+
+    }
+
+
+
+    function speakMessage(text) {
+
+      let speech = new SpeechSynthesisUtterance(text);
+
+      speech.rate = 1;
+
+      speech.pitch = 1;
+
+      speech.lang = "en-US";
+
+      window.speechSynthesis.speak(speech);
+
+    }
+
+  </script>
+
+</body>
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Introduction</title>
+
+    <style>
+
+      body {
+
+        background-image: url("");
+
+
+
+        background-attachment: fixed;
+
+        background-size: cover;
+
+        background-repeat: no-repeat;
+
+        background-position: center;
+
+        width: auto;
+
+        height: auto;
+
+
+
+        /* filter: none;
+
+     background-repeat: no-repeat;
+
+            background-size: 100% 100%;
+
+            background-position: top;
+
+            padding-top: 50px;
+
+            background-size: cover; */
+
+      }
+
+     
+
+
+
+      #teachers_position {
+
+        margin-top: 300px;
+
+        margin-left: 450px;
+
+      }
+
+
+
+      #teachers_saying {
+
+        background-color: antiquewhite;
+
+        color: black;
+
+        width: 200px;
+
+        text-align: center;
+
+        padding: 15px;
+
+        margin-top: 280px;
+
+        margin-bottom: 400px;
+
+        border-radius: 10px;
+
+        /* min-height: 50px; */
+
+        font-size: 18px;
+
+        border: 1px solid #ccc;
+
+        transition: all 0.3s ease-in-out;
+
+      }
+
+
+
+      .container {
+
+        display: flex;
+
+        gap: 0;
+
+      }
+
+
+
+      button {
+
+        width: 50px;
+
+        height: 30px;
+
+        border: none;
+
+        border-radius: 8px;
+
+        background-color: rgb(11, 154, 154);
+
+        color: white;
+
+        cursor: pointer;
+
+        text-align: center;
+
+        margin-bottom: 0;
+
+
+
+      }
+
+
+
+      button:hover {
+
+        background-color: rgb(2, 62, 62);
+
+      }
+
+
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+
+
+        <div id="teachers_position">
+
+            <img
+
+            src="C:\Users\shwet\Downloads\pngtree-female-teachers-of-cartoon-teaching-png-image_939540-removebg-preview (1).png"
+
+            alt="Teacher"
+
+            width="300px"
+
+            height="450px"
+
+            />
+
+        </div>
+
+        <div id="teachers_saying">
+
+            Click "NEXT" to Start
+
+            <br>
+
+       
+
+        </div>
+
+        <button onclick="nextMessage()">NEXT</button>
+
+    </div>
+
+   
+
+    <script>
+
+        const messages = [
+
+            "Good Evening Students",
+
+            "I am ur chemistry teacher",
+
+            "I will help u to perform practical in a fun way.",
+
+            "Later on we will solve some quiz based on that practicals",
+
+            "So..Lets get started..!!"
+
+        ];
+
+
+
+         
+
+    let index = 0;
+
+    let typingSpeed = 50; // Speed of typing effect
+
+
+
+    function typeMessage(text, i = 0) {
+
+        if (i < text.length) {
+
+            document.getElementById("teachers_saying").innerText = text.substring(0, i + 1);
+
+            setTimeout(() => typeMessage(text, i + 1), typingSpeed);
+
+        } else {
+
+            speakMessage(text); // Speak after typing finishes
+
+        }
+
+    }
+
+
+
+    function nextMessage() {
+
+        if (index < messages.length) {
+
+            typeMessage(messages[index]);
+
+            index++;
+
+        } else {
+
+            typeMessage("That's all for today! See you next time.");
+
+           
+
+        }
+
+    }
+
+
+
+    function speakMessage(text) {
+
+        let speech = new SpeechSynthesisUtterance(text);
+
+        speech.rate = 1; // Speed of speech
+
+        speech.pitch = 1; // Pitch of voice
+
+        speech.lang = "en-US"; // Language
+
+        window.speechSynthesis.speak(speech);
+
+
+
+    }
+
+
+
+
+
+    </script>
+
+  </body>
+
+</html>
+
+
+
+ -->
+
+<!-- <div id="teachers_position">
+
+                <img src="C:\Users\shwet\Downloads\pngtree-female-teachers-of-cartoon-teaching-png-image_939540-removebg-preview (1).png"
+
+                     alt="Teacher" width="300px" height="450px" />
+
+            </div> -->
+
+
+
+
+
+#Apparatus page
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Apparatus</title>
+
+    <style>
+
+        body {
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+            margin: 0;
+
+            padding: 0;
+
+            background: linear-gradient(135deg, #e0f7fa, #c2e59c);
+
+            display: flex;
+
+            flex-direction: column;
+
+            min-height: 100vh;
+
+            color: #333;
+
+        }
+
+
+
+        header {
+
+            background-color: rgba(255, 255, 255, 0.8);
+
+            padding: 20px;
+
+            text-align: center;
+
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+        }
+
+
+
+        .lab-container {
+
+            display: flex;
+
+            justify-content: space-around;
+
+            flex-wrap: wrap;
+
+            padding: 20px;
+
+            flex-grow: 1;
+
+            align-items: flex-start;
+
+        }
+
+
+
+        .apparatus {
+
+            width: 200px;
+
+            background-color: rgba(255, 255, 255, 0.9);
+
+            border: 1px solid #ddd;
+
+            padding: 15px;
+
+            margin: 10px;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            cursor: pointer;
+
+        }
+
+
+
+        .apparatus:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+
+        }
+
+
+
+        .apparatus img {
+
+            max-width: 100%;
+
+            height: auto;
+
+            border-radius: 5px;
+
+        }
+
+
+
+        #info-panel {
+
+            background-color: rgba(255, 255, 255, 0.9);
+
+            padding: 20px;
+
+            border-radius: 8px;
+
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+            margin: 20px auto;
+
+            max-width: 800px;
+
+            text-align: left;
+
+            display: none;
+
+        }
+
+
+
+        #info-panel h2 {
+
+            color: #007bff;
+
+            cursor: pointer;
+
+        }
+
+
+
+        footer {
+
+            background-color: rgba(255, 255, 255, 0.8);
+
+            padding: 10px;
+
+            text-align: center;
+
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+
+        }
+
+
+
+        #btn1 {
+
+        width: 80px;
+
+        height: 40px;
+
+        margin-top: 20px;
+
+        border: none;
+
+        border-radius: 8px;
+
+        border: 2px solid black;
+
+        background-color: rgb(10, 189, 7);
+
+        color: black;
+
+        cursor: pointer;
+
+        font-size: 16px;
+
+        float: right;
+
+        margin-right: 20px;
+
+        margin-bottom: 10px;
+
+      }
+
+
+
+      #btn1:hover {
+
+        background-color: rgb(244, 60, 60);
+
+        color: black;
+
+      }
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Virtual Chemistry Lab</h1>
+
+        <p>Explore and learn about chemistry apparatus.</p>
+
+    </header>
+
+
+
+    <div class="lab-container">
+
+        <div class="apparatus" onclick="showApparatusInfo('Beaker', 'Used to hold, mix, and heat liquids.','https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Beaker_500ml_transparent_with_water.jpg/250px-Beaker_500ml_transparent_with_water.jpg')">
+
+            <img src="https://5.imimg.com/data5/SELLER/Default/2022/11/QZ/SB/HU/28113931/beaker-500x500.jpg">
+
+            <p>Beaker</p>
+
+        </div>
+
+        <div class="apparatus" onclick="showApparatusInfo('Test Tube', 'Used to hold small amounts of substances.','https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Test_tube_rack.jpg/250px-Test_tube_rack.jpg')">
+
+            <img src="https://5.imimg.com/data5/OA/KH/DP/SELLER-50852921/1-test-tube-borosil-500x500-500x500.jpg">
+
+            <p>Test Tube</p>
+
+        </div>
+
+        <div class="apparatus" onclick="showApparatusInfo('Burette', 'Used for precise liquid dispensing.','https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Burette.jpg/250px-Burette.jpg')">
+
+            <img src="https://www.shivsons.com/wp-content/uploads/2018/01/22.104.0025-1.jpg">
+
+            <p>Burette</p>
+
+        </div>
+
+        <div class="apparatus" onclick="showApparatusInfo('Pipette', 'Used for accurate liquid transfer.','https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Pipette_with_bulb.jpg/250px-Pipette_with_bulb.jpg')">
+
+            <img src="https://i0.wp.com/www.masontechnology.ie/wp-content/uploads/2024/09/Volumetric-Pipette-Example.png?fit=500%2C500&ssl=1">
+
+            <p>Pipette</p>
+
+        </div>
+
+        <div class="apparatus" onclick="showApparatusInfo('Conical Flask', 'Used for mixing and heating chemicals.','https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Erlenmeyer_flask_250ml.jpg/250px-Erlenmeyer_flask_250ml.jpg')">
+
+            <img src="https://5.imimg.com/data5/KL/FC/MY-38753301/conical-flask.jpg">
+
+            <p>Conical Flask</p>
+
+        </div>
+
+
+
+        <div class="apparatus" onclick="showApparatusInfo('Measuring Cylinder', 'Used to accurately measure the volume of liquids. ','https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Erlenmeyer_flask_250ml.jpg/250px-Erlenmeyer_flask_250ml.jpg')">
+
+            <img src="https://www.jiomart.com/images/product/original/rvlv8pifi3/abgil-borosilicate-glass-measuring-cylinder-graduated-100ml-capacity-one-unit-in-a-box-product-images-orvlv8pifi3-p601441168-0-202305130212.jpg?im=Resize=(420,420)">
+
+            <p>Measuring Cylinder</p>
+
+        </div>
+
+
+
+        <div class="apparatus" onclick="showApparatusInfo('Filter Paper', ' Used to separate solid particles from liquids in a mixture.','https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Erlenmeyer_flask_250ml.jpg/250px-Erlenmeyer_flask_250ml.jpg')">
+
+            <img src="https://makerbazar.in/cdn/shop/products/filterpaper.jpg?v=1661157615">
+
+            <p>Filter Paper</p>
+
+        </div>
+
+
+
+
+
+        <div class="apparatus" onclick="showApparatusInfo('Pipette bulb', ' Used to safely draw and release liquids into a pipette.','https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Erlenmeyer_flask_250ml.jpg/250px-Erlenmeyer_flask_250ml.jpg')">
+
+            <img src="https://5.imimg.com/data5/NJ/EE/MY-346156/pipette-bulb.jpg">
+
+            <p>Pipette bulb</p>
+
+        </div>
+
+
+
+
+
+        <div class="apparatus" onclick="showApparatusInfo('Funnel ', 'Used to transfer liquids or fine-grained substances into containers with a small opening.','https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Erlenmeyer_flask_250ml.jpg/250px-Erlenmeyer_flask_250ml.jpg')">
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuoXWsaWOr4dNPnUd_JodhsbK3R_7uUYVQug&s">
+
+            <p>Funnel </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div id="info-panel">
+
+        <h2 id="apparatusName" onclick="pronounceText(this.textContent)"></h2>
+
+        <img id="apparatusImage" style="max-width: 200px; height:auto; display:block; margin: 10px auto;">
+
+        <p id="apparatusUse"></p>
+
+    </div>
+
+
+
+    <div id="btn">
+
+        <a href="Ex1.html">
+
+            <button id="btn1">EXP 1</button>
+
+        </a>
+
+    </div>
+
+   
+
+    <script>
+
+        function showApparatusInfo(name, use, imageUrl) {
+
+            document.getElementById('apparatusName').textContent = name;
+
+            document.getElementById('apparatusUse').textContent = use;
+
+           /* document.getElementById('apparatusImage').src = imageUrl; */
+
+            document.getElementById('info-panel').style.display = 'block';
+
+            window.scrollTo({top: 0, behavior: 'smooth'});
+
+            pronounceText(name); // Automatically pronounce the name
+
+        }
+
+
+
+
+
+        function pronounceText(text) {
+
+            const utterance = new SpeechSynthesisUtterance(text);
+
+            utterance.rate = 0.9; // Adjust speed if needed
+
+            speechSynthesis.speak(utterance);
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+
+#Experiment no. 1
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=2.0" />
+
+  <title>Experiment 1</title>
+
+  <style>
+
+    body {
+
+      font-family: Arial, sans-serif;
+
+      padding: 20px;
+
+      background: #f0f8ff;
+
+    }
+
+
+
+    h1 {
+
+      color: #2c3e50;
+
+    }
+
+
+
+    .container {
+
+      background: white;
+
+      border-radius: 10px;
+
+      padding: 20px;
+
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+      margin: 10px;
+
+    }
+
+
+
+    .materials,
+
+    .procedure {
+
+      margin-top: 20px;
+
+    }
+
+
+
+    ul {
+
+      list-style-type: square;
+
+    }
+
+
+
+    #btn1 {
+
+      width: 80px;
+
+      height: 40px;
+
+      margin-top: 20px;
+
+      border: none;
+
+      border-radius: 8px;
+
+      border: 2px solid black;
+
+      background-color: rgb(10, 189, 7);
+
+      color: black;
+
+      cursor: pointer;
+
+      font-size: 16px;
+
+      float: right;
+
+      margin-right: 20px;
+
+      margin-bottom: 10px;
+
+    }
+
+
+
+    #btn1:hover {
+
+      background-color: rgb(244, 60, 60);
+
+      color: black;
+
+    }
+
+  </style>
+
+</head>
+
+
+
+<body>
+
+  <div>
+
+    <h1>
+
+      <center>🧪 Experiment No.1: Preparation of Urea-Formaldehyde resin</center>
+
+    </h1>
+
+    <div class="container">
+
+      <div class="Aim"></div>
+
+      <h2>🎯 Aim:</h2>
+
+      <p><Strong>Preparation of Urea-Formaldehyde resin.</Strong> </p>
+
+    </div>
+
+
+
+    <div>
+
+      <div class="container">
+
+        <div class="Apparatus"></div>
+
+        <h2>🧫 Apparatus:</h2>
+
+        <ol>
+
+          <li>Beaker</li>
+
+          <li>Glass Rod</li>
+
+          <li>Water bath</li>
+
+          <li>Funnel</li>
+
+        </ol>
+
+      </div>
+
+
+
+      <div>
+
+        <div class="container">
+
+          <div class="Chemicals"></div>
+
+          <h2>⚗ Chemicals:</h2>
+
+          <ul>
+
+            <li>Formaldehyde(40%)</li>
+
+            <li>Urea</li>
+
+            <li>Plastic bottle or volcano model</li>
+
+            <li>Conc.Sulphuric acid</li>
+
+            <li>Distilled water</li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+
+
+      <div>
+
+        <div class="container">
+
+          <div class="Theory"></div>
+
+          <h2>📝 Theory:</h2>
+
+          <p>Urea Resins are formed by condensation polymerization of urea and formaldehyde in the presence of an acid
+
+            or alkaline catalyst.Thermosetting Polymers are materials that harden irreversibly when heated due to
+
+            extensive cross-linking, forming a rigid 3D network. Once set, they cannot be melted or reshaped. Examples
+
+            include Phenol-Formaldehyde and Melamine-Formaldehyde resins.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <div>
+
+        <div class="container">
+
+          <div class="Properties"></div>
+
+          <h2>🔬 Properties:</h2>
+
+          <ul>
+
+            <li>They are clear and white.</li>
+
+            <li>Better hardness and tensile strength than PF resins.
+
+            </li>
+
+            <li>Resistant to most of the solvents and grease.
+
+            </li>
+
+            <li>Excellent abrasion resistant and stable to light.
+
+            </li>
+
+            <li>Good adhesive characteristics.
+
+            </li>
+
+            <li>Good electrical insulators and possess chemical resistance.</li>
+
+            <li>They can be synthesized in any desired colour by adding proper pigment and filler during Synthesis
+
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+
+
+      <div>
+
+        <div class="container">
+
+          <div class="Uses"></div>
+
+          <h2>💡Uses:</h2>
+
+          <ol>
+
+            <li>These resins are widely used in manufacture of buttons, bottle caps, house hold appliances, surgical
+
+              items etc.</li>
+
+            <li>They are used as adhesives in plywood industries.</li>
+
+            <li>They are also used in the manufacturing of enamels and other surface coatings.</li>
+
+            <li>Used for the finishing of cotton textiles(They impart stiffness, crease resistance, fire retardation,
+
+              water repellency.</li>
+
+            <li> They are also helpful for shrinkage control</li>
+
+          </ol>
+
+        </div>
+
+      </div>
+
+
+
+      <div>
+
+        <div class="container">
+
+          <div class="procedure"></div>
+
+          <h2>📋 Procedure:</h2>
+
+          <ol>
+
+            <li>Place %ml of 40% formaldehyde solution in 100 ml beaker.</li>
+
+            <li>Add about 2.5g of urea while stirring until a satursted solution is obtain.</li>
+
+            <li>Add a few drops of concentrated sulphuric acd wth stirring continuously during addition.</li>
+
+            <li>All of sudden a voluminous white solid mass is appear in a beaker.</li>
+
+            <li>When the reaction is complete wash the residue with water and dry the product dry it in the folds of
+
+              filter paper and calculate the yeild of product formed.</li>
+
+          </ol>
+
+        </div>
+
+      </div>
+
+
+
+      <div>
+
+        <div class="container">
+
+          <div class="Results"></div>
+
+          <h2>✅ Results: </h2>
+
+          <ul>
+
+            <li>The yeild of obtained urea-formaldehyde resin,is.........gram</li>
+
+            <li>%yeild of urea formaldehyde is.....</li>
+
+          </ul>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div>
+
+      <div id="btn">
+
+        <a href="Ex2.html">
+
+          <button id="btn1">EXP 2</button>
+
+        </a>
+
+      </div>
+
+
+
+      <div id="btn">
+
+        <a href="Apparatus.html">
+
+          <button id="btn1" style="float: left;">Previous</button>
+
+        </a>
+
+      </div>
+
+
+
+    </div>
+
+   
+
+</body>
+
+</body>
+
+
+
+</html>
+
+
+
+
+
+#Experiment 2
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=2.0" />
+
+    <title>Experiment 2</title>
+
+    <style>
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            padding: 20px;
+
+            background: #f0f8ff;
+
+        }
+
+
+
+        h1 {
+
+            color: #2c3e50;
+
+        }
+
+
+
+        .container {
+
+            background: white;
+
+            border-radius: 10px;
+
+            padding: 20px;
+
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+            margin: 10px;
+
+        }
+
+
+
+        .materials,
+
+        .procedure {
+
+            margin-top: 20px;
+
+        }
+
+
+
+        ul {
+
+            list-style-type: square;
+
+        }
+
+
+
+        #btn1 {
+
+            width: 80px;
+
+            height: 40px;
+
+            margin-top: 20px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            border: 2px solid black;
+
+            background-color: rgb(10, 189, 7);
+
+            color: black;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+            float: right;
+
+            margin-right: 20px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+
+        #btn1:hover {
+
+            background-color: rgb(244, 60, 60);
+
+            color: black;
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+    <div>
+
+        <h1>
+
+            <center>🧪 Experiment No.2: Estimation of Calcium in CaCO3 Solution</center>
+
+        </h1>
+
+        <div class="container">
+
+            <div class="Aim"></div>
+
+            <h2>🎯 Aim:</h2>
+
+            <p>To estimate the Ca2+ present in a given solution of CaCO3.You are provided with pure crystal of Zinc
+
+                Sulphate heptahydrate and approximately 0.1M EDTA solution.</p>
+
+        </div>
+
+
+
+        <div>
+
+            <div class="container">
+
+                <div class="Principle"></div>
+
+                <h2>📝 Principle:</h2>
+
+                <p>Many complex-forming ions of molecules have a tendency to form stepwise complex ions and with the aid
+
+                    of suitable indicators these complex ions can be treated (complexometric titration). Ca and Mg ions
+
+                    form complexes easily with EDTA (Ethylene diamine tetra acetic acid), which is the basic principle
+
+                    of this experiment. Ethylene diamine tetraacetic acid (EDTA) is a complex forming reagent which can
+
+                    be used for such titrations. EDTA is a hexadentate ligand due to the most favorable combination of
+
+                    the four carboxylic groups and two amino nitrogens in this one structure. The complexes formed are
+
+                    chelate (ring) type and stable. Ca2+ or Zn2+ form complexes with EDTA, is the basic principle of
+
+                    this titration. The titration is carried out using Eriochrome black -T (EBT) as the indicator. Since
+
+                    the action of the indicator and the formation of M-EDTA complex is governed by pH, the pH of the
+
+                    solution is kept nearly constant by adding a basic buffer NH4OH-NH4Cl (pH 9-10). The titration
+
+                    involves the following principle.
+
+                    The indicator EBT which is blue in color, forms less stable wine-red colored M-EBT complex with Ca2+
+
+                    or Zn2+ ions at a pH of 9-10. As this solution is titrated against EDTA, the metal ions from the
+
+                    less stable M-EBT complex are set free and form colorless M-EDTA complex which is more stable. The
+
+                    solution turns blue due to the free EBT. First, the EDTA solution is standardized with a standard
+
+                    solution of Zinc sulfate and then the given calcium solution is estimated.</p>
+
+            </div>
+
+        </div>
+
+
+
+        <div>
+
+            <div class="container">
+
+                <div class="Materials Reqiured"></div>
+
+                <h2>🧫 Materials Reqiured:</h2>
+
+                <ol>
+
+                    <li>0.1 M EDTA Solution</li>
+
+                    <li>Eriochrome Black T Indicator</li>
+
+                    <li>Buffer solution (pH = 10)</li>
+
+                    <li>0.1M Ca2+ ion solution</li>
+
+                    <li>ZnSO4.7H2O (AR) crystals</li>
+
+                </ol>
+
+            </div>
+
+        </div>
+
+
+
+        <div>
+
+            <div class="container">
+
+                <div class="Titration 1:Standardisation of EDTA Solution"></div>
+
+                <h2>⚗ Titration 1:Standardisation of EDTA Solution:</h2>
+
+                <p>About 2.87 g of ZnSO₄·7H₂O (AR) crystals are accurately weighed out and transferred into a 100 ml
+
+                    standard flask. The solution is made up to the mark and thoroughly shaken to get a homogeneous
+
+                    solutionExactly 10 ml of the standard Zn solution is pipetted out into a clean conical flask. About
+
+                    10 ml of the buffer solution of (pH 10) followed by 3 or 4 drops of Erichrome black T indicator
+
+                    solution are added to it. The solution becomes wine red in color. It is titrated against EDTA
+
+                    solution taken in the burette till there is a sharp change from wine red to a blue color. The
+
+                    titration is repeated to get concordant values. From the volume of EDTA consumed, the strength of
+
+                    EDTA solution is calculated</p>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <div>
+
+            <div class="container">
+
+                <div class="Observation & calculations:"></div>
+
+                <h2>🔍 Observation & calculations:</h2>
+
+                <h3>Titration 1:standardisation of EDTA solutions:</h3>
+
+                <h4>(a) Preparation of Zinc Sulphate</h4>
+
+                <p> Weight of ZnSO4.7H2O(AR) crystal in 100ml of the solution= ........g
+
+                </p>
+
+                <p> Strength (molarity) of standard Zn+ solution= Wg*1000/Mol. Mass of ZnSO4.7H2O*Volume </p>
+
+                <p>=(........*1000)/287.36*100</p>
+
+                <p>=........M</p>
+
+                <h4>(b)Scheme of titration:-</h4>
+
+
+
+                <table border="1">
+
+                    <tr>
+
+                        <th>Volume ZnSO4 in the conical flask(ml)</th>
+
+
+
+                        <th colspan="2">Burette Reading</th>
+
+                        <th>Volume of EDTA run down(constant burette reading)ml</th>
+
+                    </tr>
+
+                    <tr>
+
+                        <th></th>
+
+
+
+                        <th>Initial</th>
+
+                        <th>Final</th>
+
+                        <th></th>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>1) 10</td>
+
+
+
+                        <td>0.0</td>
+
+                        <td>9.9ml</td>
+
+                        <td></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>2) 10</td>
+
+
+
+                        <td>0.0</td>
+
+                        <td>9.9ml</td>
+
+                        <td>9.9</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>3) 10</td>
+
+
+
+                        <td>0.0</td>
+
+                        <td>9.9ml</td>
+
+                        <td></td>
+
+                    </tr>
+
+                </table>
+
+                <h4>📱Calculation:</h4>
+
+                <p>Volume of standard Zn2+ solution(V1)=10ml</p>
+
+                <p>Volume of EDTA solution(V2)=......ml
+
+                <p>Strength of EDTA solution(M2)=?</p>
+
+                <p>V1M1=V2M2</p>
+
+                <p>M2=V1M1/V2</p>
+
+                <p>=.......</p>
+
+                <p>=.......M</p>
+
+            </div>
+
+        </div>
+
+        <div>
+
+            <div class="container">
+
+                <div class="Titration 2:Estimation of Calcium"></div>
+
+                <h2>⚗ Titration 2:Estimation of Calcium:</h2>
+
+                <p>Exactly 10 ml of CaCO3 solution is pipetted out into a clean conical flask. Exactly 10 ml of buffer
+
+                    solution (pH-10) and 3 or 4 drops of Eriochrome Black T indicator solution are added to it. It is
+
+                    titrated against standardized EDTA solution taken in the burette. At the endpoint, there is a sharp
+
+                    change from wine red to a pure blue color. The titration is repeated for concordancy. From the titre
+
+                    values, the strength of CaCO3 solution and hence its amount is calculated.</p>
+
+
+
+
+
+
+
+                <h3>Titration 2:Estimation of Calcium:</h3>
+
+                <h4>Scheme of titration</h4>
+
+                <table border="1">
+
+                    <tr>
+
+                        <th>Volume CaCO3 in the conical flask(ml)</th>
+
+
+
+                        <th colspan="2">Burette Reading</th>
+
+                        <th>Volume of EDTA run down(constant burette reading)ml</th>
+
+                    </tr>
+
+                    <tr>
+
+                        <th></th>
+
+
+
+                        <th>Initial</th>
+
+                        <th>Final</th>
+
+                        <th></th>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>1) 10</td>
+
+
+
+                        <td>0.0</td>
+
+                        <td>9.2ml</td>
+
+                        <td></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>2) 10</td>
+
+
+
+                        <td>0.0</td>
+
+                        <td>9.2ml</td>
+
+                        <td>9.2</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>3) 10</td>
+
+
+
+                        <td>0.0</td>
+
+                        <td>9.2ml</td>
+
+                        <td></td>
+
+                    </tr>
+
+                </table>
+
+
+
+                <h4>📱 Calculation:</h4>
+
+                <p>Volume of given Ca+ solution(V1)=10ml</p>
+
+                <p>Molarity of the given Ca2+ solution(M1)=?</p>
+
+                <p>Volume of standardised EDTA solution(V2)=......ml
+
+                <p>Molarity of EDTA solution(M2)=.......M
+
+                <p>V1M1=V2M2</p>
+
+                <p>M1=V2M2/V1</p>
+
+                <p>=.......</p>
+
+                <p>=.......M</p>
+
+                <p>Molarity of the given Ca2+ solution(M1)=........</p>
+
+                <p>Amount of Ca2+ present in the 100ml of the given solution=</p>
+
+                <p>Molarity of Ca2+ solution* Atomic Mass of Ca*100/1000</p>
+
+                <p>......</p>
+
+                <p>......g</p>
+
+            </div>
+
+        </div>
+
+
+
+        <div>
+
+            <div class="container">
+
+                <div class="Results">
+
+                    <h2>✅ Results:</h2>
+
+                    <p>The amount of Ca2+ present in the whole of the given solution is .......g</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+   
+
+    <div>
+
+        <div id="btn">
+
+          <a href="Ex3.html">
+
+            <button id="btn1">EXP 3</button>
+
+          </a>
+
+        </div>
+
+ 
+
+        <div id="btn">
+
+          <a href="Ex1.html">
+
+            <button id="btn1" style="float: left;">Previous</button>
+
+          </a>
+
+        </div>
+
+ 
+
+
+
+</body>
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+#Experiment 3
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=2.0" />
+
+    <title>Experiment 3</title>
+
+    <style>
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            padding: 20px;
+
+            background: #f0f8ff;
+
+        }
+
+
+
+        h1 {
+
+            color: #2c3e50;
+
+        }
+
+
+
+        .container {
+
+            background: white;
+
+            border-radius: 10px;
+
+            padding: 20px;
+
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+            margin: 10px;
+
+        }
+
+
+
+        .materials,
+
+        .procedure {
+
+            margin-top: 20px;
+
+        }
+
+
+
+        ul {
+
+            list-style-type: square;
+
+        }
+
+
+
+        #btn1 {
+
+            width: 80px;
+
+            height: 40px;
+
+            margin-top: 20px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            border: 2px solid black;
+
+            background-color: rgb(10, 189, 7);
+
+            color: black;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+            float: right;
+
+            margin-right: 20px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+
+        #btn1:hover {
+
+            background-color: rgb(244, 60, 60);
+
+            color: black;
+
+        }
+
+
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+    <div>
+
+        <h1>
+
+            <center>🧪 Experiment No.3: Estimation of copper in Brass</center>
+
+        </h1>
+
+        <div class="container">
+
+            <div class="Aim"></div>
+
+            <h2>🎯 Aim:</h2>
+
+            <p>1,9846 g of a sample of brass is dissolved in conc. HNO<sub>3</sub> and the solution is boiled with urea
+
+                to destroy nitrogen oxides. The resulting solution is placed in 250 ml standard measuring flask Estimate
+
+                the amount of copper in this given solution, You are provided with an approximately decinormal solution
+
+                of sodium thiosulphate and pure crystals potassium dichromate.</p>
+
+        </div>
+
+
+
+        <div>
+
+            <div class="container">
+
+                <div class="Theory"></div>
+
+                <h2>📝 Theory:</h2>
+
+                <p>Brass is an alloy of mainly copper and zinc with a little Sn,Pb and Fe. Copper in the given brass
+
+                    solution is estimated Iodometrically. First sodium thiosulphate is standardized using standard
+
+                    potassium dichromate solution. A definite volume of K2Cr2O7 solution is treated against sodium
+
+                    thiosulphate using starch as indicator towards end point.
+
+                    Secondly the given brass solution is made up to the mark. A known volume or this solution after
+
+                    being made neutral is treated with KI solution and the Iodine liberates is titrated against standard
+
+                    sodium thiosulphate using starch as indicator tơwards end point.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div>
+
+            <div class="container">
+
+                <div class="Equations"></div>
+
+                <h2>🔣 Equations:</h2>
+
+                <ol>
+
+                    <li> K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub> + 8HCl -->2KCl + 2CrCl<sub>3</sub> + 4H<sub>2</sub>O +
+
+                        3(O)
+
+                        (2KI + 2HCl + (O) --> 2KCl + H<sub>2</sub>O + I<sub>2</sub>)
+
+                        Therefore K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub> + 14HCl + 6KI --> 8KCl + 2CrCl<sub>3</sub> +
+
+                        7H<sub>2</sub>O + 3I<sub>2</sub> </li>
+
+                    <br>
+
+                    <li> 2Cu(NO<sub>3</sub>)<sub>2</sub> + 4KI ---neutral or faintly acidic---->
+
+                        Cu<sub>2</sub>I<sub>2</sub> + 4KNO<sub>3</sub> + I<sub>2</sub> </li>
+
+                    <br>
+
+                    <li> I<sub>2</sub> + 2Na<sub>2</sub>SO<sub>3</sub> --> 2NaI +
+
+                        Na<sub>2</sub>S<sub>4</sub>O<sub>6</sub> </li>
+
+                </ol>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <div>
+
+            <div class="container">
+
+                <div class="Reagents"></div>
+
+                <h2>💧 Reagents:</h2>
+
+                <p>Bleaching powder, Standard sodium thiosulphate solution (0.1 N), 10% Potassium iodide (KI) solution,
+
+                    dilute acetic acid, freshly prepared starch solution as indicator</p>
+
+            </div>
+
+        </div>
+
+
+
+        <div>
+
+            <div class="container">
+
+                <div class="procedure"></div>
+
+                <h2>⚗ Procedure:</h2>
+
+                <p>Titration 1:- Standardization of sodium thiosulphate
+
+                    The burette is washed and rinsed with sodium thiosulphate solution. Then the burette is filled with
+
+                    given sodium thiosulphate solution. 10ml of 0.1N potassium dichromate solution is pipetted out into
+
+                    a clean conical flask. To this 10ml of sulphuric acid and 10 ml of 10% potassium iodide are added.
+
+                    This is titrated against sodium thiosulphate solution. When the solution becomes straw yellow in
+
+                    color, starch indicator is added and then the titration is continued. The end point is the
+
+                    disappearance of blue colour.
+
+                </p>
+
+                <p>
+
+                    Titration 2:- Estimation of copper
+
+                    The given brass solution is made up to the mark in the 250 cm3 standard measuring flask and shaken
+
+                    well, 10 ml of this made up solution is pipetted out into a clean conical flask. The given ammonium
+
+                    hydroxide solution is added drop wise till a bluish white precipitate is just obtained. The
+
+                    precipitate is then just dissolved by adding acetic acid drop wise. About 10 ml 10%KI is added and
+
+                    the flask is kept aside for a minute. The liberated iodine is then titrated against standardized
+
+                    sodium thiosulphate solution from the burette till the reaction mixture turns straw yellow. Now
+
+                    starch is added and the titration is continued as before until the deep blue colour just disappears
+
+                    leaving behind a white precipitate of cuprous iodide. The titration is repeated for concordant
+
+                    values.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div>
+
+            <div class="container">
+
+                <div class="Observation and Calculations"></div>
+
+                <h2>🔍 Observation and Calculations: </h2>
+
+
+
+                <h3> 1)Standardization of Sodium Thiosulphate
+
+                    Potassium dichromate Vs Sodium Thiosulphate</h3>
+
+                <p>Scheme of Titration:</p>
+
+                <table border="1">
+
+                    <tr>
+
+                        <th>Sr.No.</th>
+
+                        <th>Volume of Potassium dichromate</th>
+
+
+
+                        <th colspan="2">Burette Readings</th>
+
+                        <th>Volume of Sodium thiosulphate(ml)</th>
+
+                    </tr>
+
+                    <tr>
+
+                        <th></th>
+
+                        <th></th>
+
+                        <th>Initial</th>
+
+                        <th>Final</th>
+
+                        <th></th>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>1</td>
+
+                        <td> 10</td>
+
+
+
+                        <td>0</td>
+
+                        <td>10.5</td>
+
+                        <td></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>2</td>
+
+                        <td>10</td>
+
+                        <td>0</td>
+
+                        <td>10.5</td>
+
+                        <td>10.5</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>3</td>
+
+                        <td>10</td>
+
+                        <td>0</td>
+
+                        <td>10.5</td>
+
+                        <td></td>
+
+                    </tr>
+
+                </table>
+
+                <h3>📱 Calculations:</h3>
+
+                <p>Volume of Potassium dichromate V1=10ml</p>
+
+                <p>Strength of Potassium dichromate N1=0.1N</p>
+
+                <p>Volume of Sodium thiosulphate V2=.......ml</p>
+
+                <p>Strength of Sodium thiosulphate N2=.....?</p>
+
+                <p>V1N1=V2N2</p>
+
+                <p>N2=V1N1/V2</p>
+
+                <p>Strength of Sodium thiosulphate
+
+                <p>=N2</p>
+
+                <p>=10*0.1/V2</p>
+
+                <p>=.......</p>
+
+                <p>=.......N</p>
+
+            </div>
+
+        </div>
+
+
+
+        <div>
+
+            <div class="container">
+
+                <h3>Estimation of percentage of copper present in Brass:</h3>
+
+                <p>Scheme of Titration:</p>
+
+
+
+
+
+                <h3>Titration table </h3>
+
+                <table border="1">
+
+                    <tr>
+
+                        <th>Sr.No.</th>
+
+                        <th>Volume of brass in conical flask(ml)</th>
+
+
+
+                        <th colspan="2">Burette Readings</th>
+
+                        <th>Volume of Sodium thiosulphate used up (ml)</th>
+
+                    </tr>
+
+                    <tr>
+
+                        <th></th>
+
+                        <th></th>
+
+                        <th>Initial</th>
+
+                        <th>Final</th>
+
+                        <th></th>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>1</td>
+
+                        <td> 10</td>
+
+
+
+                        <td>0</td>
+
+                        <td></td>
+
+                        <td></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>2</td>
+
+                        <td>10</td>
+
+                        <td>0</td>
+
+                        <td>8.5</td>
+
+                        <td>8.5</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>3</td>
+
+                        <td>10</td>
+
+                        <td>0</td>
+
+                        <td></td>
+
+                        <td></td>
+
+                    </tr>
+
+                </table>
+
+                <h3>📱 Calculations:</h3>
+
+                <p>Concordant Volume of Na2S2O3 solution V1=....</p>
+
+                <p>Normality of standard Na2S2O3 solution,N1=.....</p>
+
+                <p>Volume of brass,V2=10ml</p>
+
+                <p>Normality off brass,N2 can be calculated from the normality formula,</p>
+
+                <p>i.e.,N1*V1=N2*V2</p>
+
+                <p>Normality of brass,N2=.......N</p>
+
+                <p> Amount of available copper present=N2*equivalent weight of copper=</p>
+
+                <p>Amount off available copper present in 250 ml of the solution=</p>
+
+                <p>The percentage of available copper present in the given sample of Brass =</p>
+
+                <p>=Weight of copper *100/Amount of Brass </p>
+
+                <p>=........%</p>
+
+            </div>
+
+
+
+            <div>
+
+                <div class="container">
+
+                    <div class="Results"></div>
+
+                    <h2>✅ Results: </h2>
+
+                    <p>
+
+                        The percentage of copper in given sample of brass is=.....%
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div>
+
+                <div id="btn">
+
+                  <a href="Quiz1.html">
+
+                    <button id="btn1">Quiz 1</button>
+
+                  </a>
+
+                </div>
+
+         
+
+                <div id="btn">
+
+                  <a href="Ex2.html">
+
+                    <button id="btn1" style="float: left;">Previous</button>
+
+                  </a>
+
+                </div>
+
+         
+
+
+
+
+
+        </div>
+
+</body>
+
+</body>
+
+
+
+</html>
+
+
+
+
+
+# Quiz 1
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Urea-Formaldehyde Resin Quiz</title>
+
+    <style>
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            text-align: center;
+
+            background-color: #f7f7f7;
+
+            padding: 20px;
+
+        }
+
+
+
+        .quiz-container {
+
+            width: 60%;
+
+            margin: auto;
+
+            background-color: #fff;
+
+            padding: 20px;
+
+            border-radius: 8px;
+
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+        }
+
+
+
+        .question {
+
+            margin-bottom: 20px;
+
+            text-align: left;
+
+        }
+
+
+
+        .result-info {
+
+            margin-top: 20px;
+
+            text-align: left;
+
+        }
+
+
+
+        button {
+
+            background-color: #007bff;
+
+            color: white;
+
+            border: none;
+
+            padding: 10px 15px;
+
+            cursor: pointer;
+
+            border-radius: 5px;
+
+            margin-top: 10px;
+
+        }
+
+
+
+        button:hover {
+
+            background-color: #0056b3;
+
+        }
+
+
+
+        #next-button {
+
+            display: none;
+
+        }
+
+
+
+        #result-page {
+
+            display: none;
+
+        }
+
+
+
+        #btn1 {
+
+      width: 80px;
+
+      height: 40px;
+
+      margin-top: 20px;
+
+      border: none;
+
+      border-radius: 8px;
+
+      border: 2px solid black;
+
+      background-color: rgb(10, 189, 7);
+
+      color: black;
+
+      cursor: pointer;
+
+      font-size: 16px;
+
+      float: right;
+
+      margin-right: 20px;
+
+      margin-bottom: 10px;
+
+    }
+
+
+
+    #btn1:hover {
+
+      background-color: rgb(244, 60, 60);
+
+      color: black;
+
+    }
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="quiz-container" id="quiz-page">
+
+        <h2>Urea-Formaldehyde Resin Quiz</h2>
+
+        <div id="question-container"></div>
+
+        <div id="result-info" class="result-info"></div>
+
+        <button id="next-button" onclick="nextQuestion()">Next</button>
+
+    </div>
+
+
+
+    <div class="quiz-container" id="result-page">
+
+        <h2>Quiz Completed!</h2>
+
+        <div id="final-score"></div>
+
+        <button onclick="restartQuiz()">Retake Quiz</button>
+
+    </div>
+
+
+
+    <div>
+
+        <div id="btn">
+
+          <a href="Quiz2.html">
+
+            <button id="btn1">Quiz 2</button>
+
+          </a>
+
+        </div>
+
+ 
+
+        <div id="btn">
+
+          <a href="Ex3.html">
+
+            <button id="btn1" style="float: left; padding: 3px">Previous</button>
+
+          </a>
+
+        </div>
+
+ 
+
+
+
+
+
+    <script>
+
+        const questions = [
+
+            {
+
+                question: "What is the main chemical used along with urea to prepare Urea-Formaldehyde resin?",
+
+                options: ["Acetic Acid", "Formaldehyde", "Sulphuric Acid"],
+
+                answer: 1,
+
+                explanation: "Formaldehyde is the key reactant along with urea in forming Urea-Formaldehyde resin."
+
+            },
+
+            {
+
+                question: "What type of polymer is Urea-Formaldehyde resin?",
+
+                options: ["Thermoplastic", "Elastomer", "Thermosetting Polymer"],
+
+                answer: 2,
+
+                explanation: "Urea-Formaldehyde is a thermosetting polymer, meaning it becomes hard and rigid when heated."
+
+            },
+
+            {
+
+                question: "Which property makes Urea-Formaldehyde resin useful in electrical applications?",
+
+                options: ["Good Adhesive Properties", "Good Electrical Insulation", "High Abrasion Resistance"],
+
+                answer: 1,
+
+                explanation: "Good electrical insulation makes Urea-Formaldehyde resin suitable for electrical applications."
+
+            },
+
+            {
+
+                question: "What catalyst is commonly used to prepare Urea-Formaldehyde resin?",
+
+                options: ["Sodium Hydroxide", "Sulphuric Acid", "Hydrochloric Acid"],
+
+                answer: 1,
+
+                explanation: "Sulphuric Acid is commonly used as a catalyst in the polymerization process."
+
+            },
+
+            {
+
+                question: "What is a common use of Urea-Formaldehyde resin?",
+
+                options: ["Food Packaging", "Textile Finishing", "Fuel Production"],
+
+                answer: 1,
+
+                explanation: "Urea-Formaldehyde resin is used in textile finishing to impart stiffness, crease resistance, and water repellency."
+
+            }
+
+        ];
+
+
+
+        let currentQuestionIndex = 0;
+
+        let score = 0;
+
+
+
+        function loadQuestion() {
+
+            const container = document.getElementById("question-container");
+
+            const questionData = questions[currentQuestionIndex];
+
+
+
+            let questionHTML = `<div class='question'>
+
+                <p><strong>Question ${currentQuestionIndex + 1}:</strong> ${questionData.question}</p>`;
+
+
+
+            questionData.options.forEach((option, index) => {
+
+                questionHTML += <input type='radio' name='answer' value='${index}'> ${option}<br>;
+
+            });
+
+
+
+            questionHTML += <br><button onclick='submitAnswer()'>Submit</button></div>;
+
+
+
+            container.innerHTML = questionHTML;
+
+            document.getElementById("result-info").innerHTML = "";
+
+            document.getElementById("next-button").style.display = "none";
+
+        }
+
+
+
+        function submitAnswer() {
+
+            const selected = document.querySelector("input[name='answer']:checked");
+
+            if (!selected) {
+
+                alert("Please select an answer before submitting.");
+
+                return;
+
+            }
+
+
+
+            const selectedIndex = parseInt(selected.value);
+
+            const questionData = questions[currentQuestionIndex];
+
+            let explanation = `<p><strong>Explanation:</strong> `;
+
+
+
+            if (selectedIndex === questionData.answer) {
+
+                explanation += "Correct! ";
+
+                score++;
+
+            } else {
+
+                explanation += `Incorrect. The correct answer is '${questionData.options[questionData.answer]}'. `;
+
+            }
+
+
+
+            explanation += questionData.explanation + "</p>";
+
+            document.getElementById("result-info").innerHTML = explanation;
+
+            document.getElementById("next-button").style.display = "inline-block";
+
+        }
+
+
+
+        function nextQuestion() {
+
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex >= questions.length) {
+
+                showResult();
+
+            } else {
+
+                loadQuestion();
+
+            }
+
+        }
+
+
+
+        function showResult() {
+
+            document.getElementById("quiz-page").style.display = "none";
+
+            document.getElementById("result-page").style.display = "block";
+
+            document.getElementById("final-score").innerHTML =
+
+                <p>Your final score is <strong>${score}</strong> out of <strong>${questions.length}</strong>.</p>;
+
+        }
+
+
+
+        function restartQuiz() {
+
+            currentQuestionIndex = 0;
+
+            score = 0;
+
+            document.getElementById("quiz-page").style.display = "block";
+
+            document.getElementById("result-page").style.display = "none";
+
+            loadQuestion();
+
+        }
+
+
+
+        document.addEventListener("DOMContentLoaded", loadQuestion);
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+
+#Quiz 2
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Urea-Formaldehyde Resin Quiz</title>
+
+    <style>
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            text-align: center;
+
+            background-color: #f7f7f7;
+
+            padding: 20px;
+
+        }
+
+
+
+        .quiz-container {
+
+            width: 60%;
+
+            margin: auto;
+
+            background-color: #fff;
+
+            padding: 20px;
+
+            border-radius: 8px;
+
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+        }
+
+
+
+        .question {
+
+            margin-bottom: 20px;
+
+            text-align: left;
+
+        }
+
+
+
+        .result-info {
+
+            margin-top: 20px;
+
+            text-align: left;
+
+        }
+
+
+
+        button {
+
+            background-color: #007bff;
+
+            color: white;
+
+            border: none;
+
+            padding: 10px 15px;
+
+            cursor: pointer;
+
+            border-radius: 5px;
+
+            margin-top: 10px;
+
+        }
+
+
+
+        button:hover {
+
+            background-color: #0056b3;
+
+        }
+
+
+
+        #next-button {
+
+            display: none;
+
+        }
+
+
+
+        #result-page {
+
+            display: none;
+
+        }
+
+
+
+        #btn1 {
+
+      width: 85px;
+
+      height: 40px;
+
+      margin-top: 20px;
+
+      border: none;
+
+      border-radius: 8px;
+
+      border: 2px solid black;
+
+      background-color: rgb(10, 189, 7);
+
+      color: black;
+
+      cursor: pointer;
+
+      font-size: 16px;
+
+      float: right;
+
+      margin-right: 20px;
+
+      margin-bottom: 10px;
+
+    }
+
+
+
+    #btn1:hover {
+
+      background-color: rgb(244, 60, 60);
+
+      color: black;
+
+    }
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="quiz-container" id="quiz-page">
+
+        <h2>Estimation of Calcium by EDTA Method</h2>
+
+        <div id="question-container"></div>
+
+        <div id="result-info" class="result-info"></div>
+
+        <button id="next-button" onclick="nextQuestion()">Next</button>
+
+    </div>
+
+
+
+    <div class="quiz-container" id="result-page">
+
+        <h2>Quiz Completed!</h2>
+
+        <div id="final-score"></div>
+
+        <button onclick="restartQuiz()">Retake Quiz</button>
+
+    </div>
+
+
+
+    <div>
+
+        <div id="btn">
+
+          <a href="Quiz3.html">
+
+            <button id="btn1">Quiz 3</button>
+
+          </a>
+
+        </div>
+
+ 
+
+        <div id="btn">
+
+          <a href="Quiz1.html">
+
+            <button id="btn1" style="float: left; padding: 3px;">Previous</button>
+
+          </a>
+
+        </div>
+
+ 
+
+
+
+
+
+    <script>
+
+        const questions = [
+
+        {
+
+        question: "What kind of ligand is EDTA?",
+
+        options: ["Monodentate", "Hexadentate", "Bidentate"],
+
+        answer: 1,
+
+        explanation: "EDTA is a hexadentate ligant,meaning it can form six coordinate bonds with a metal ion."
+
+    },
+
+    {
+
+        question: "Which of the following is used as the indicator in this titration?",
+
+        options: ["Phenolphthalein", "Methyl orange", "Eriochrome black-T(EBT)"],
+
+        answer: 2,
+
+        explanation: "EBT is a weak complexing agent used to detect the presence of metal ions during titration.It changes color based on the binding of metal ions."
+
+    },
+
+    {
+
+        question: "What is the role of the buffer solution in the titration?",
+
+        options: ["To oxidize the metal ions", "To keep the pH constant arond 10", "To neutralize the solution"],
+
+        answer: 1,
+
+        explanation: "The buffer solution maintains the pH at around 10,which is ideal for the complexation reaction between EDTA and the metal ions."
+
+    },
+
+    {
+
+        question: "What is the color change observed at the end point of the titration?",
+
+        options: ["Blue to red", "Wine red to blue", "Colorless to red"],
+
+        answer: 1,
+
+        explanation: "The indicator EBT forms a wine red complex with metal ions.During titration with EDTA,the metal ions form more stable complexes with EDTA,which is blue in color-indicating the end point."
+
+    },
+
+    {
+
+        question: "What is the type of structure formed when EDTA binds to a metal ion?",
+
+        options: ["Linear", "Octahedral", "Tetrahedral"],
+
+        answer: 1,
+
+        explanation: "EDTA is a hexadentate ligant,which wraps around metal ions and forms octahedral complexes."
+
+    }
+
+        ];
+
+
+
+        let currentQuestionIndex = 0;
+
+        let score = 0;
+
+
+
+        function loadQuestion() {
+
+            const container = document.getElementById("question-container");
+
+            const questionData = questions[currentQuestionIndex];
+
+
+
+            let questionHTML = `<div class='question'>
+
+                <p><strong>Question ${currentQuestionIndex + 1}:</strong> ${questionData.question}</p>`;
+
+
+
+            questionData.options.forEach((option, index) => {
+
+                questionHTML += <input type='radio' name='answer' value='${index}'> ${option}<br>;
+
+            });
+
+
+
+            questionHTML += <br><button onclick='submitAnswer()'>Submit</button></div>;
+
+
+
+            container.innerHTML = questionHTML;
+
+            document.getElementById("result-info").innerHTML = "";
+
+            document.getElementById("next-button").style.display = "none";
+
+        }
+
+
+
+        function submitAnswer() {
+
+            const selected = document.querySelector("input[name='answer']:checked");
+
+            if (!selected) {
+
+                alert("Please select an answer before submitting.");
+
+                return;
+
+            }
+
+
+
+            const selectedIndex = parseInt(selected.value);
+
+            const questionData = questions[currentQuestionIndex];
+
+            let explanation = `<p><strong>Explanation:</strong> `;
+
+
+
+            if (selectedIndex === questionData.answer) {
+
+                explanation += "Correct! ";
+
+                score++;
+
+            } else {
+
+                explanation += `Incorrect. The correct answer is '${questionData.options[questionData.answer]}'. `;
+
+            }
+
+
+
+            explanation += questionData.explanation + "</p>";
+
+            document.getElementById("result-info").innerHTML = explanation;
+
+            document.getElementById("next-button").style.display = "inline-block";
+
+        }
+
+
+
+        function nextQuestion() {
+
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex >= questions.length) {
+
+                showResult();
+
+            } else {
+
+                loadQuestion();
+
+            }
+
+        }
+
+
+
+        function showResult() {
+
+            document.getElementById("quiz-page").style.display = "none";
+
+            document.getElementById("result-page").style.display = "block";
+
+            document.getElementById("final-score").innerHTML =
+
+                <p>Your final score is <strong>${score}</strong> out of <strong>${questions.length}</strong>.</p>;
+
+        }
+
+
+
+        function restartQuiz() {
+
+            currentQuestionIndex = 0;
+
+            score = 0;
+
+            document.getElementById("quiz-page").style.display = "block";
+
+            document.getElementById("result-page").style.display = "none";
+
+            loadQuestion();
+
+        }
+
+
+
+        document.addEventListener("DOMContentLoaded", loadQuestion);
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+
+#Quiz 3
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <title>Urea-Formaldehyde Resin Quiz</title>
+
+    <style>
+
+      body {
+
+        font-family: Arial, sans-serif;
+
+        text-align: center;
+
+        background-color: #f7f7f7;
+
+        padding: 20px;
+
+      }
+
+
+
+      .quiz-container {
+
+        width: 60%;
+
+        margin: auto;
+
+        background-color: #fff;
+
+        padding: 20px;
+
+        border-radius: 8px;
+
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+      }
+
+
+
+      .question {
+
+        margin-bottom: 20px;
+
+        text-align: left;
+
+      }
+
+
+
+      .result-info {
+
+        margin-top: 20px;
+
+        text-align: left;
+
+      }
+
+
+
+      button {
+
+        background-color: #007bff;
+
+        color: white;
+
+        border: none;
+
+        padding: 10px 15px;
+
+        cursor: pointer;
+
+        border-radius: 5px;
+
+        margin-top: 10px;
+
+      }
+
+
+
+      button:hover {
+
+        background-color: #0056b3;
+
+      }
+
+
+
+      #next-button {
+
+        display: none;
+
+      }
+
+
+
+      #result-page {
+
+        display: none;
+
+      }
+
+
+
+      #btn1 {
+
+        width: 85px;
+
+        height: 40px;
+
+        margin-top: 20px;
+
+        border: none;
+
+        border-radius: 8px;
+
+        border: 2px solid black;
+
+        background-color: rgb(10, 189, 7);
+
+        color: black;
+
+        cursor: pointer;
+
+        font-size: 16px;
+
+        float: right;
+
+        margin-right: 20px;
+
+        margin-bottom: 10px;
+
+      }
+
+
+
+      #btn1:hover {
+
+        background-color: rgb(244, 60, 60);
+
+        color: black;
+
+      }
+
+    </style>
+
+  </head>
+
+
+
+  <body>
+
+    <div class="quiz-container" id="quiz-page">
+
+      <h2>Estimation of copper in Brass</h2>
+
+      <div id="question-container"></div>
+
+      <div id="result-info" class="result-info"></div>
+
+      <button id="next-button" onclick="nextQuestion()">Next</button>
+
+    </div>
+
+
+
+    <div class="quiz-container" id="result-page">
+
+      <h2>Quiz Completed!</h2>
+
+      <div id="final-score"></div>
+
+      <button onclick="restartQuiz()">Retake Quiz</button>
+
+    </div>
+
+
+
+    <div>
+
+        <div id="btn">
+
+          <a href="Closing_page.html">
+
+            <button id="btn1">FINISH</button>
+
+          </a>
+
+        </div>
+
+ 
+
+        <div id="btn">
+
+          <a href="Quiz2.html">
+
+            <button id="btn1" style="float: left; padding: 3px;">Previous</button>
+
+          </a>
+
+        </div>
+
+ 
+
+
+
+
+
+    <script>
+
+      const questions = [
+
+            {
+
+                question: "Which indicator is used in the estimation of copper by iodometric titration?",
+
+                options: ["Phenolphthalein","Methyl orange","Starch solution"],
+
+                answer: 2,
+
+                explanation: "Starch is used as an indicator in the estimation of copper in brass (iodometric titration) because it forms a deep blue complex with iodine, which makes it very easy to detect even small amounts of iodine in the solution."
+
+            },
+
+            {
+
+                question: "The brass sample is first dissolved in which acid during the experiment?",
+
+                options:["Sulfuric acid","Hydrochloric acid","Nitric acid"],
+
+                answer: 2,
+
+                explanation: "The brass sample is first dissolved in nitric acid to bring the copper (and zinc) into solution in the form of their respective nitrate salts."
+
+            },
+
+            {
+
+                question: "What is the color change observed at the end point of the titration with sodium thiosulfate?",
+
+                options: ["Blue to green","Colorless to blue","Yellow-brown to colorless"],
+
+                answer: 2,
+
+                explanation: "Color change is observed at the endpoint of the iodometric titration in the estimation of copper in brass because the iodine (I₂) present in the solution reacts completely with sodium thiosulfate (Na₂S₂O₃), and the starch-iodine blue complex disappears."
+
+            },
+
+            {
+
+                question: "The liberated iodine is titrated with:",
+
+                options: ["Sodium carbonate","Sodium hydroxide","Sodium thiosulfate"],
+
+                answer: 2,
+
+                explanation: "Liberated iodine is titrated with sodium thiosulphate in the estimation of copper in brass because sodium thiosulphate is a standard reducing agent that reacts quantitatively with iodine, allowing us to measure the amount of iodine — and therefore the amount of copper originally present."
+
+            },
+
+            {
+
+                question: "In the iodometric titration of copper, what role does potassium iodide (KI) play?",
+
+                options: ["It oxidizes copper", "It forms a complex with thiosulfate","It reduces Cu²⁺ to Cu⁺ and liberates iodine"],
+
+                answer: 2,
+
+explanation: "KI is essential to convert copper(II) into a measurable form (iodine), enabling its estimation through titration."
+
+            }
+
+        ];
+
+
+
+      let currentQuestionIndex = 0;
+
+      let score = 0;
+
+
+
+      function loadQuestion() {
+
+        const container = document.getElementById("question-container");
+
+        const questionData = questions[currentQuestionIndex];
+
+
+
+        let questionHTML = `<div class='question'>
+
+                <p><strong>Question ${currentQuestionIndex + 1}:</strong> ${
+
+          questionData.question
+
+        }</p>`;
+
+
+
+        questionData.options.forEach((option, index) => {
+
+          questionHTML += <input type='radio' name='answer' value='${index}'> ${option}<br>;
+
+        });
+
+
+
+        questionHTML += <br><button onclick='submitAnswer()'>Submit</button></div>;
+
+
+
+        container.innerHTML = questionHTML;
+
+        document.getElementById("result
+
+
+
+#Closing Page
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Closing Page</title>
+
+  <style>
+
+    body {
+
+      margin: 0;
+
+      padding: 0;
+
+      font-family: 'Segoe UI', sans-serif;
+
+      background: linear-gradient(to right, #2c3e50, #4ca1af);
+
+      color: white;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      height: 100vh;
+
+      text-align: center;
+
+    }
+
+
+
+    .closing-container {
+
+      max-width: 600px;
+
+      padding: 40px;
+
+      background-color: rgba(0, 0, 0, 0.6);
+
+      border-radius: 20px;
+
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+
+    }
+
+
+
+    h1 {
+
+      font-size: 2.5rem;
+
+      margin-bottom: 20px;
+
+    }
+
+
+
+    p {
+
+      font-size: 1.1rem;
+
+      margin: 10px 0;
+
+    }
+
+
+
+    .quote {
+
+      font-style: italic;
+
+      margin-top: 20px;
+
+    }
+
+
+
+    button {
+
+      margin-top: 30px;
+
+      padding: 10px 25px;
+
+      font-size: 1rem;
+
+      background-color: #27ae60;
+
+      color: white;
+
+      border: none;
+
+      border-radius: 10px;
+
+      cursor: pointer;
+
+      transition: background-color 0.3s ease;
+
+    }
+
+
+
+    button:hover {
+
+      background-color: #219150;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="closing-container">
+
+    <h1>🎓 Congratulations!</h1>
+
+    <p>We've successfully completed our journey through the Virtual Chemistry Lab.</p>
+
+    <p>I hope you enjoyed exploring, experimenting, and learning!</p>
+
+    <p class="quote">"Science is not only a discipline of reason but, also, one of romance and passion." – Stephen Hawking</p>
+
+    <button onclick="goToHome()">Back to Home</button>
+
+  </div>
+
+
+
+  <script>
+
+    function goToHome() {
+
+      window.location.href = "Intro_page.html";
+
+    }
+
+  </script>
+
+</body>
+
+</html>
