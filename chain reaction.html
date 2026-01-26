@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Trigger to Tragedy: Chain Reactions and Catastrophes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    /* Fonts and General */
+    body {
+      font-family: 'Poppins', 'Comic Neue', sans-serif;
+      background-color: #0d1b2a;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* INTRO SCREEN STYLES */
+    #intro-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: linear-gradient(to right, #001f3f, #003f5c);
+      color: white;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 2em;
+      overflow: hidden;
+    }
+
+    #typing-text {
+      font-family: 'Courier New', monospace;
+      font-size: 1.6em;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid white;
+      width: 0ch;
+      animation: typing 4s steps(40) forwards;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0ch;
+      }
+
+      to {
+        width: 40ch;
+      }
+    }
+
+    #loader-bar {
+      margin-top: 30px;
+      width: 80%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    #loader-fill {
+      height: 100%;
+      width: 0%;
+      background: #00ffbf;
+      animation: loadProgress 4s linear forwards;
+    }
+
+    @keyframes loadProgress {
+      to {
+        width: 100%;
+      }
+    }
+
+    /* PARTICLE STYLES */
+    .particle-dot {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #ffdd00;
+      border-radius: 50%;
+      animation: float 6s infinite ease-in-out;
+      opacity: 0.8;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.7;
+      }
+
+      50% {
+        transform: translateY(-20px) scale(1.2);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.7;
+      }
+    }
+
+    /* PAGE ENTRANCE */
+    body.loaded {
+      animation: fadeInZoom 1.2s ease-out forwards;
+    }
+
+    @keyframes fadeInZoom {
+      from {
+        opacity: 0;
+        transform: scale(0.98);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d1b2a;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #1b263b;
+      padding: 30px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    section {
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2,
+    h3 {
+      color: #ffba08;
+    }
+
+    ul {
+      text-align: left;
+    }
+
+    .reaction-area {
+      position: relative;
+      height: 350px;
+      background-color: #1e3d59;
+      border-radius: 12px;
+      margin-top: 20px;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: white;
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+
+    .neutron {
+      background-color: #38b000;
+    }
+
+    .uranium {
+      background-color: #ff9100;
+    }
+
+    .fragment {
+      background-color: #f72585;
+    }
+
+    .gas {
+      background-color: #00b4d8;
+    }
+
+    .toxic {
+      background-color: #d00000;
+    }
+
+    .label {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 1.1em;
+      font-style: italic;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #0077b6;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0096c7;
+    }
+
+    @keyframes moveNeutron {
+      to {
+        left: 380px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes fragmentLeft {
+      to {
+        left: 280px;
+        top: 60px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes fragmentRight {
+      to {
+        left: 500px;
+        top: 200px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes shootNeutron {
+      to {
+        left: 600px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0px white;
+      }
+
+      50% {
+        box-shadow: 0 0 20px 10px #fff;
+      }
+    }
+
+    @keyframes spread1 {
+      to {
+        left: 200px;
+        top: 80px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes spread2 {
+      to {
+        left: 260px;
+        top: 150px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes spread3 {
+      to {
+        left: 320px;
+        top: 120px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes spread4 {
+      to {
+        left: 380px;
+        top: 200px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes spread5 {
+      to {
+        left: 440px;
+        top: 100px;
+        opacity: 1;
+      }
+    }
+
+    svg {
+      width: 100%;
+      max-width: 600px;
+      display: block;
+      margin: 20px auto;
+      background: #0f2a40;
+      border-radius: 10px;
+    }
+    #quiz .question {
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: #111;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #0ff3, 0 0 20px #0ff3 inset;
+    }
+  
+    #quiz input[type="radio"] {
+      margin-right: 10px;
+      accent-color: #00f7ff;
+    }
+  
+    #quiz label {
+      display: block;
+      margin: 8px 0;
+      font-size: 1em;
+    }
+  
+    #quiz p {
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+  
+    #quiz-result {
+      text-align: center;
+      text-shadow: 0 0 5px #00f7ff;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="intro-screen">
+    <div id="typing-text">Exploring Chain Reactions in Chemistry...</div>
+    <div id="loader-bar">
+      <div id="loader-fill"></div>
+    </div>
+  </div>
+
+  <header>
+    <h1>Chain Reactions in Chemistry</h1>
+  </header>
+
+  <section>
+    <h2>What is a Chain Reaction?</h2>
+    <p>A chain reaction is a fascinating chemical or nuclear process in which one
+      reaction step triggers another, and that one triggers the next, and so on —
+      continuing like a row of dominoes falling. You can think of it like lighting one
+      match, and that single flame sets off an entire line of fireworks — one small start
+      leads to a massive, self-sustaining series of events.
+    </p>
+    <h2>How does the chain reaction work?</h2>
+    <p>In chemistry, chain reactions often involve radicals — highly reactive species with
+      unpaired electrons. The reaction begins with an initiation step, usually sparked by
+      heat, light, or another energy source, which creates the first reactive species.
+      Then comes the propagation phase, where these reactive intermediates generate
+      more of themselves by reacting with other molecules. This keeps the chain going.
+      Eventually, the chain ends in a termination step, where the radicals combine or
+      get neutralized, stopping the process.
+      Chain reactions are not just in chemistry textbooks — they power real-life
+      phenomena! Combustion, polymerization, and even explosions are all examples. In
+      nuclear reactions, like those in power plants or atomic bombs, one neutron starts
+      a chain of nuclear fissions, releasing more neutrons and huge amounts of energy.
+      In short, chain reactions are nature’s way of turning a spark into a spectacle.
+    </p>
+
+    <h3>Types of Chain Reactions:</h3>
+    <ul>
+      <h3>
+        <li><strong>Chemical Chain Reactions:</strong>
+      </h3>
+      <li>Involve reactive chemical species such as atoms, molecules, or free radicals.</li>
+      <li>Typically proceed through three key stages: initiation, propagation, and
+        termination</li>
+      <p><b>Example: Combustion</b>
+        <li>Initiation: A spark or heat source generates free radicals.</li>
+        <li>Propagation: These radicals react with stable molecules to produce more
+          radicals, sustaining the reaction.</li>
+        <li>Termination: Radicals combine to form stable products, ending the chain
+          reaction.</li>
+      </p>
+      </li>
+      <h3>
+        <li><strong>Nuclear Chain Reactions:</strong></li>
+      </h3>
+      <li>Involve the fission of atomic nuclei, where one nuclear reaction produces
+        neutrons that trigger further fission events.</li>
+      <li>Can be controlled (as in nuclear reactors) or uncontrolled (as in atomic
+        bombs).</li>
+      <li>Release an immense amount of energy.</li>
+      <p><b>Example: Chernobyl Disaster</b>
+        <li>A neutron collided with Uranium-235, causing it to split and release energy
+          along with additional neutrons.</li>
+        <li>These neutrons caused further fission, creating a self-sustaining chain
+          reaction.</li>
+        <li>In the Chernobyl incident, this reaction became uncontrolled due to flawed
+          reactor design and a failed safety test, resulting in a steam explosion, core
+          meltdown, and widespread radiation release.</li>
+      </p>
+      </li>
+      <h3>
+        <li><strong>Polymerization chain reactions.</strong>
+      </h3>
+      <li>Commonly used in the production of plastics and synthetic resins.</li>
+      <li>Involve the sequential addition of monomers to a growing polymer chain.</li>
+      <li>Typically initiated by a free radical or ion, and proceeds through a chain
+        mechanism</li>
+      <p><b>Example: Styrene Gas Leak – Vizag, 2020 (India)</b>
+        <li>Involved the uncontrolled polymerization of styrene, a monomer used in
+          plastics</li>
+        <li>Though not a classical chain reaction, it serves as a modern example of
+          runaway polymerization due to poor storage conditions</li>
+      </p>
+      </li>
+      <h3>
+        <li><strong>Runaway Exothermic Reactions (Not true chain reactions)</strong>
+      </h3>
+      <li>Characterized by a self-accelerating thermal process, where heat produced
+        by the reaction increases the reaction rate, leading to more heat and pressure.</li>
+      <li>These are often mistaken for chain reactions, but lack the radical or neutronbased self-propagation.</li>
+      <p><b>Example: Bhopal Gas Tragedy (1984)</b>
+        <li>Water inadvertently entered a tank containing Methyl Isocyanate (MIC)</li>
+        <li>MIC reacted exothermically with water, generating intense heat and toxic gas</li>
+        <li>The absence of proper cooling systems and pressure relief led to a massive
+          gas leak</li>
+        <li>Though not a chain reaction scientifically, it was a classic example of a
+          runaway chemical reaction, resulting in over 15,000 deaths and long-term
+          health and environmental damage.
+        </li>
+      </p>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Real-Life Example 1: Bhopal Gas Tragedy (1984)</h2>
+    <p>
+      The Bhopal gas tragedy occurred on the night of December 2–3, 1984, at the
+      Union Carbide India Limited (UCIL) pesticide plant in Bhopal, Madhya Pradesh. It
+      is widely regarded as the world’s worst industrial chemical disaster.
+    <h5>Type of Reaction: Runaway Exothermic Chemical Reaction (Not a
+      chain reaction)</h5>
+    The incident involved Methyl Isocyanate (MIC), a highly toxic and reactive
+    intermediate used in pesticide production. MIC is sensitive to heat, moisture, and
+    impurities. When it reacts with water, it undergoes a highly exothermic (heatproducing) reaction.<br>
+    <b>H3–N=C=O (MIC) + H2O → CH3–NH2 (Methylamine) + CO2 + Heat</b><br>
+    <b>CH₃–N=C=O (Methyl Isocyanate) + H₂O → CH₃–NH₂ (Methylamine) + CO₂ ↑ + Heat (Exothermic)</b><br>
+    This reaction is not a chain reaction in the scientific sense, as it does not involve
+    self-propagating radicals or neutrons. Instead, it is a runaway reaction, where the
+    generated heat accelerates the process uncontrollably.
+
+    <h5>What led to the Cascade</h5>
+    <p>
+      <li>Water accidentally entered a MIC storage tank (Tank 610), possibly during
+        cleaning operations.</li>
+      <li>The reaction between MIC and water produced excessive heat and pressure.</li>
+      <li>The plant’s cooling system, vent gas scrubber, and flare tower were either
+        non-functional or turned off to save costs.</li>
+      <li>As a result, over 40 tons of toxic MIC gas leaked into the atmosphere.</li>
+      <li>The gas spread quickly over the sleeping population of Bhopal, causing
+        widespread casualties within hours.</li>
+    </p>
+    </p>
+    <p><strong>Chemical Reaction:</strong></p>
+    <pre style="background:#1a1a1a;padding:10px;border-radius:8px;overflow-x:auto;">
+CH3–N=C=O (MIC) + H2O → CH3NHCOOH → CH3NH2 + CO2 + Heat</pre>
+<h3>Here's an animation to explain what really happened</h3>
+    <video width="640" height="360" controls>
+      <source src="Bhopal Gas Tragedy - Animation.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <section>
+    <h2>Real-Life Example 2: Chernobyl Disaster</h2>
+    <p>
+      The Chernobyl disaster occurred on April 26, 1986, at Reactor 4 of the
+      Chernobyl Nuclear Power Plant near Pripyat, Ukraine (then part of the Soviet
+      Union). It stands as one of the most severe nuclear accidents in history.
+    </p>
+    <p><b>Type of Reaction: Nuclear Chain Reaction:<br></b>
+      The reactor operated on the principle of nuclear fission chain reactions. When a
+      neutron strikes a Uranium-235 nucleus, the nucleus splits (fission), releasing
+      energy and additional neutrons. These neutrons go on to split more uranium
+      atoms, maintaining a self-sustaining chain reaction</p>
+    <p><b>What Led to the Cascade?</b><br>
+      <li>A safety test was conducted under dangerously unstable conditions.
+        Key safety systems were deliberately disabled.</li>
+      <li>Operators removed too many control rods, which are designed to slow or stop
+        the reaction.</li>
+      <li>The reactor had serious design flaws, especially the RBMK reactor’s positive
+        void coefficient, making it unstable at low power.</li>
+      <li>The chain reaction accelerated uncontrollably, generating immense heat.
+        This led to a massive steam explosion, followed by a core meltdown.</li>
+      <li>The reactor building was destroyed, releasing large amounts of radioactive
+        isotopes (including Iodine-131 and Cesium-137) into the environment.
+    </p>
+    </li>
+    <p><strong>Nuclear Reaction:</strong></p>
+    <pre style="background:#1a1a1a;padding:10px;border-radius:8px;overflow-x:auto;">
+U-235 + n → Ba-141 + Kr-92 + 3n + Energy</pre>
+<h3>Here's an animation to explain what really happened</h3>
+    <video width="640" height="360" controls>
+      <source src="The Chernobyl Disaster How It Happened1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+</section><br><hr><br><br><br>
+<section id="quiz" style="padding: 60px 20px; background-color: #000; color: #fff;">
+  <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2em; text-align: center; margin-bottom: 40px; text-shadow: 0 0 10px #00f7ff;">🧪 Test Your Chemistry Knowledge!</h2>
+  
+  <form id="quiz-form" style="max-width: 800px; margin: auto; font-family: 'Poppins', sans-serif;">
+    <div class="question">
+      <p>1. What gas was released in the Bhopal Gas Tragedy?</p>
+      <label><input type="radio" name="q1" value="a"> Ammonia</label><br>
+      <label><input type="radio" name="q1" value="b"> Phosgene</label><br>
+      <label><input type="radio" name="q1" value="c"> Methyl Isocyanate</label><br>
+      <label><input type="radio" name="q1" value="d"> Chlorine</label>
+    </div>
+
+    <div class="question">
+      <p>2. Which particle starts a nuclear chain reaction?</p>
+      <label><input type="radio" name="q2" value="a"> Proton</label><br>
+      <label><input type="radio" name="q2" value="b"> Electron</label><br>
+      <label><input type="radio" name="q2" value="c"> Alpha particle</label><br>
+      <label><input type="radio" name="q2" value="d"> Neutron</label>
+    </div>
+
+    <div class="question">
+      <p>3. What does a catalyst do in a chemical reaction?</p>
+      <label><input type="radio" name="q3" value="a"> Slows down the reaction</label><br>
+      <label><input type="radio" name="q3" value="b"> Increases the product amount</label><br>
+      <label><input type="radio" name="q3" value="c"> Speeds up the reaction without being used up</label><br>
+      <label><input type="radio" name="q3" value="d"> Reacts with all reactants</label>
+    </div>
+
+    <button type="button" onclick="checkQuiz()" style="margin-top: 30px; padding: 12px 25px; font-size: 1em; background: #00f7ff; border: none; color: black; border-radius: 8px; box-shadow: 0 0 10px #00f7ff; cursor: pointer;">Submit</button>
+    <p id="quiz-result" style="font-weight: bold; margin-top: 25px; font-size: 1.2em;"></p>
+  </form>
+</section>
+  <script>
+    // Particle generation
+    const particleCount = 40;
+    const introScreen = document.getElementById("intro-screen");
+
+    for (let i = 0; i < particleCount; i++) {
+      const dot = document.createElement("div");
+      dot.classList.add("particle-dot");
+      dot.style.top = `${Math.random() * 100}%`;
+      dot.style.left = `${Math.random() * 100}%`;
+      dot.style.animationDuration = `${3 + Math.random() * 3}s`;
+      dot.style.animationDelay = `${Math.random() * 4}s`;
+      introScreen.appendChild(dot);
+    }
+
+    // Intro exit after animation
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("intro-screen").style.display = "none";
+        document.body.classList.add("loaded");
+      }, 5000); // Matches typing + loader duration
+    });
+
+    function startChemical() {
+      const audio = document.getElementById("bhopalAudio");
+      audio.play();
+
+      let mic = document.getElementById("mic1");
+      let water = document.getElementById("water");
+      let mix = document.getElementById("mix");
+
+      mic.style.opacity = 1;
+      water.style.opacity = 1;
+
+      setTimeout(() => {
+        mic.style.animation = "glow 1s ease-in-out 2";
+        water.style.animation = "glow 1s ease-in-out 2";
+        mix.style.opacity = 1;
+      }, 1000);
+
+      let gases = [
+        document.getElementById("toxic1"),
+        document.getElementById("toxic2"),
+        document.getElementById("toxic3"),
+        document.getElementById("toxic4"),
+        document.getElementById("toxic5"),
+      ];
+
+      let spreads = ["spread1", "spread2", "spread3", "spread4", "spread5"];
+      gases.forEach((g, i) => {
+        g.style.animation = `${spreads[i]} 2s ease forwards`;
+        g.style.animationDelay = `${2 + i * 0.5}s`;
+      });
+    }
+
+    function startNuclear() {
+      const audio = document.getElementById("hiroshimaAudio");
+      audio.play();
+
+      let n1 = document.getElementById("n1");
+      let uranium = document.getElementById("u235");
+      let f1 = document.getElementById("f1");
+      let f2 = document.getElementById("f2");
+      let n2 = document.getElementById("n2");
+      let n3 = document.getElementById("n3");
+      let n4 = document.getElementById("n4");
+
+      n1.style.opacity = 1;
+      n1.style.animation = "moveNeutron 2s forwards";
+
+      setTimeout(() => {
+        uranium.style.animation = "glow 1s ease-in-out 2";
+        setTimeout(() => {
+          uranium.style.display = "none";
+          f1.style.top = "120px";
+          f1.style.left = "380px";
+          f2.style.top = "120px";
+          f2.style.left = "380px";
+
+          f1.style.animation = "fragmentLeft 2s forwards";
+          f2.style.animation = "fragmentRight 2s forwards";
+
+          n2.style.top = "100px"; n3.style.top = "140px"; n4.style.top = "180px";
+          n2.style.left = "380px"; n3.style.left = "380px"; n4.style.left = "380px";
+
+          n2.style.animation = "shootNeutron 2s forwards";
+          n3.style.animation = "shootNeutron 2s forwards";
+          n4.style.animation = "shootNeutron 2s forwards";
+
+          [n2, n3, n4].forEach(n => n.style.opacity = 1);
+        }, 1000);
+      }, 2000);
+    }
+    function checkQuiz() {
+      const answers = {
+        q1: "c",
+        q2: "d",
+        q3: "c"
+      };
+  
+      let score = 0;
+      let total = Object.keys(answers).length;
+      let incomplete = false;
+  
+      for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (!selected) {
+          incomplete = true;
+          break;
+        }
+        if (selected.value === answers[q]) {
+          score++;
+        }
+      }
+  
+      const result = document.getElementById("quiz-result");
+      if (incomplete) {
+        result.style.color = "#ff5555";
+        result.textContent = "❗ Please answer all questions before submitting.";
+      } else {
+        result.style.color = "#00f7ff";
+        result.textContent = `✅ You scored ${score} out of ${total}!`;
+      }
+    }
+  </script>
+
+</body>
+
+</html>
